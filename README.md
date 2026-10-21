@@ -14,22 +14,23 @@ scriptings:
   - schedule:
       name: doh-health
       cron: "0 */1 * * *"          # 每小时一次；想 5 分钟一次改成 "*/5 * * * *"
-      script_url: https://cdn.jsdelivr.net/gh/bluee1111/egern-dns-health@doh-health.js
+      script_url: https://cdn.jsdelivr.net/gh/bluee1111/egern-dns-health@v1.0.0
       timeout: 30
       update_interval: 86400
   - network:
       name: doh-health-on-change
-      script_url: https://cdn.jsdelivr.net/gh/bluee1111/egern-dns-health@doh-health.js
+      script_url: https://cdn.jsdelivr.net/gh/bluee1111/egern-dns-health@v1.0.0
       timeout: 30
       update_interval: 86400
   - generic:
       name: doh-health-now           # 工具菜单里会出现 "doh-health-now"，手动跑一次
-      script_url: https://cdn.jsdelivr.net/gh/bluee1111/egern-dns-health@doh-health.js
+      script_url: https://cdn.jsdelivr.net/gh/bluee1111/egern-dns-health@v1.0.0
       timeout: 30
       update_interval: 86400
 ```
 
-> jsDelivr 缓存：`<gh_user>/<repo>@<tag>/<file>` 这种路径会按 tag 缓存。push 完 release 后再改用 `latest`：`@latest`。
+> jsDelivr 缓存：`<gh_user>/<repo>@<tag>/<file>` 这种路径会按 tag 缓存。tag 推了之后
+> 想换 latest，把上面三处 `@v1.0.0` 改成 `@latest` 即可（不锁版本）。
 
 ## 跑完后会看到
 
